@@ -47,8 +47,11 @@ $(document).on("click", "#blason", function(evt, ui) {
   ctx.fill();
   ctx.stroke();
   done = false;
+  var fleche = new Circle(x,y,3+ctx.lineWidth);
+
   for (var i = circles.length - 1; i >= 0; i--) {
-    if (CircleCollision(circle,x,y)) {
+    console.log(CircleCollision(circles[i],fleche));
+    if (CircleCollision(circles[i],fleche)) {
       addPoints(point[i]);
       done = true;
       break;
